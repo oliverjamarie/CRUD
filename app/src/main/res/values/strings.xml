@@ -1,0 +1,233 @@
+<resources>
+    <string name="app_name">CRUD Project</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="readResponseJSON">[
+    {
+        "id": "124",
+        "title": "'onic' 4'",
+        "description": "'Introduction Programmation IONIC'"
+    },
+    {
+        "id": "35",
+        "title": "Daniel",
+        "description": "Okkkkkay"
+    },
+    {
+        "id": "37",
+        "title": "Daniel Final",
+        "description": "Test final Daniel"
+    },
+    {
+        "id": "56",
+        "title": "Daniel Test Cours",
+        "description": "Ultime test p-e"
+    },
+    {
+        "id": "34",
+        "title": "Daniel_Test",
+        "description": "Cours_Test"
+    },
+    {
+        "id": "127",
+        "title": "Data Science",
+        "description": "Introduction to Data Science with Python"
+    },
+    {
+        "id": "2",
+        "title": "Developpeur Android",
+        "description": "Description Developpeur Android"
+    },
+    {
+        "id": "111",
+        "title": "dty",
+        "description": "hy"
+    },
+    {
+        "id": "137",
+        "title": "Hello",
+        "description": ""
+    },
+    {
+        "id": "135",
+        "title": "Hello",
+        "description": "World"
+    },
+    {
+        "id": "133",
+        "title": "Hello",
+        "description": "World"
+    },
+    {
+        "id": "122",
+        "title": "iyess",
+        "description": ""
+    },
+    {
+        "id": "22",
+        "title": "Jai",
+        "description": "Reussi"
+    },
+    {
+        "id": "24",
+        "title": "Jai",
+        "description": "Reussi"
+    },
+    {
+        "id": "126",
+        "title": "java1",
+        "description": "ok"
+    },
+    {
+        "id": "11",
+        "title": "Java_01",
+        "description": "Java_01"
+    },
+    {
+        "id": "10",
+        "title": "Java_01",
+        "description": "Java_01"
+    },
+    {
+        "id": "12",
+        "title": "Java_02",
+        "description": "Java_02"
+    },
+    {
+        "id": "13",
+        "title": "Java_03",
+        "description": "Java_03"
+    },
+    {
+        "id": "15",
+        "title": "Java_05",
+        "description": "Java_05"
+    },
+    {
+        "id": "16",
+        "title": "Java_05",
+        "description": "Java_05"
+    },
+    {
+        "id": "14",
+        "title": "Java_05",
+        "description": "Java_05"
+    },
+    {
+        "id": "4",
+        "title": "Mobile App",
+        "description": "Development of mobile apps"
+    },
+    {
+        "id": "3",
+        "title": "Prog Python",
+        "description": "Description Programmeur Python"
+    },
+    {
+        "id": "5",
+        "title": "ProgNewSPIP",
+        "description": "newIntroProgrammationSPIP"
+    },
+    {
+        "id": "17",
+        "title": "Prog_Scala_17",
+        "description": "Intro_cours_Scala17"
+    },
+    {
+        "id": "18",
+        "title": "Prog_Scala_18",
+        "description": "Intro_cours_Scala18"
+    },
+    {
+        "id": "19",
+        "title": "Prog_Scala_19",
+        "description": "Intro_cours_Scala19"
+    },
+    {
+        "id": "6",
+        "title": "SQLite",
+        "description": "'Pas de description';"
+    },
+    {
+        "id": "77",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "85",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "83",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "82",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "80",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "79",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "78",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "74",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "73",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "72",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "71",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "75",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "68",
+        "title": "undefined",
+        "description": "undefined"
+    },
+    {
+        "id": "130",
+        "title": "Updated Trying To Add",
+        "description": ""
+    },
+    {
+        "id": "123",
+        "title": "VBA",
+        "description": "VBA"
+    },
+    {
+        "id": "21",
+        "title": "Web-Design",
+        "description": "Apprendre-a-designer-et-programmer-des-sites-web"
+    }
+]</string>
+</resources>
