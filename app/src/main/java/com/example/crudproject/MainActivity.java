@@ -26,11 +26,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     EditText title, id, description;
-    TextView response;
     RadioGroup radioGroup;
     public static final int CODE_POST_REQUEST = 1024;
     public static final int CODE_GET_REQUEST = 1025;
-
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+    private static final String TAG = "MAIN_ACTIVITY";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         title = findViewById(R.id.Title_Input);
         description = findViewById(R.id.Desc_Input);
         id = findViewById(R.id.ID_Input);
-        response = findViewById(R.id.respTextView);
 
         disableEditText(title);
         disableEditText(description);
@@ -113,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
 
     private class PerformNetworkRequest extends AsyncTask<Void,Void,String>{
         String url;
-
+        private String result;
         HashMap<String, String> params;
 
         int requestCode;
 
         public PerformNetworkRequest(String url, HashMap<String, String> params, int requestCode) {
-
+            result = null;
             this.url = url;
             this.params = params;
             this.requestCode = requestCode;
@@ -153,26 +152,34 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(Void... voids) {
             RequestHandler requestHandler = new RequestHandler();
+            result = null;
             try{
-                response.setText(url + requestHandler.getPostDataString(params));
                 Log.d("MainActivity", url + requestHandler.getPostDataString(params));
             }catch (Exception e){
                 e.printStackTrace();
             }
             if (requestCode == CODE_POST_REQUEST){
                 String respStr = requestHandler.sendPostRequest(url,params);
-                response.setText(response.getText() + " \n - " + respStr);
-
+                result = respStr;
                 return respStr;
             }
 
             if (requestCode == CODE_GET_REQUEST){
                 String respStr =  requestHandler.sendGetRequest(url);
-                response.setText(response.getText() + " \n" + respStr);
+                result = respStr;
                 return respStr;
             }
 
             return null;
+        }
+
+        // waits for request to finish
+        public String getResult() {
+            while(result == null){
+                continue;
+            }
+
+            return result;
         }
     }
 
@@ -188,6 +195,10 @@ public class MainActivity extends AppCompatActivity {
 
         PerformNetworkRequest request = new PerformNetworkRequest(API.CREATE, parameters, CODE_POST_REQUEST);
         request.execute();
+
+        String result = request.getResult();
+        toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
+        toast.show();
     }
 
     private void read(){
@@ -198,10 +209,12 @@ public class MainActivity extends AppCompatActivity {
 
         PerformNetworkRequest request = new PerformNetworkRequest(API.READ, null, CODE_GET_REQUEST);
         request.execute();
-        String result = String.valueOf(response.getText());
-        Intent intent = new Intent(MainActivity.this, Read.class);
-        intent.putExtra("key", result);
-        //startActivity(intent);
+
+        String result = request.getResult();
+
+        Intent intent = new Intent(this, Read.class);
+        intent.putExtra(EXTRA_MESSAGE, result);
+        startActivity(intent);
     }
 
     private void updateClass(){
@@ -216,10 +229,20 @@ public class MainActivity extends AppCompatActivity {
 
         PerformNetworkRequest request = new PerformNetworkRequest(API.UPDATE,parameters, CODE_POST_REQUEST);
         request.execute();
+        String result = request.getResult();
+
+        if (result.equalsIgnoreCase("true")){
+            toast = Toast.makeText(getApplicationContext(), "Succesfully Updated Class", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else{
+            toast = Toast.makeText(getApplicationContext(), "Failed To Update Class", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     private void deleteClass(){
-        Toast toast = Toast.makeText(getApplicationContext(), "Delete Class", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), "Deleting Class", Toast.LENGTH_SHORT);
         toast.show();
 
         HashMap<String, String> parameters = extractParameters();
@@ -228,8 +251,18 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        PerformNetworkRequest request = new PerformNetworkRequest(API.DELETE,parameters, CODE_POST_REQUEST);
+        PerformNetworkRequest request = new PerformNetworkRequest(API.DELETE,parameters, CODE_GET_REQUEST);
         request.execute();
+
+        String result = request.getResult();
+        if (result.equalsIgnoreCase("-1")){
+            toast = Toast.makeText(getApplicationContext(), "Succesfully Deleted Class", Toast.LENGTH_LONG);
+            toast.show();
+        }
+        else{
+            toast = Toast.makeText(getApplicationContext(), "Failed To Delete Class", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     private HashMap<String,String> extractParameters(){
