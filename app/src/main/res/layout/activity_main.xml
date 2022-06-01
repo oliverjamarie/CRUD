@@ -136,24 +136,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
-    <ScrollView
-        android:layout_width="410dp"
-        android:layout_height="73dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RunQuery_Btn">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/respTextView"
-                android:layout_width="match_parent"
-                android:layout_height="146dp"
-                android:text="TextView" />
-        </LinearLayout>
-    </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
