@@ -1,7 +1,7 @@
 package com.example.crudproject;
 
 public class API {
-    private static final String ROOT_URL = "https://www.rexiagroup.com/coursjava/certprogjava/";
+    private static final String ROOT_URL = "http://www.rexiagroup.com/coursjava/certprogjava/";
 
     public static final String CREATE = ROOT_URL + "coursRegister.php";
     public static final String READ = ROOT_URL + "coursList.php";
