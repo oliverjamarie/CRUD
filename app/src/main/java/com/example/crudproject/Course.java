@@ -1,10 +1,10 @@
 package com.example.crudproject;
 
-public class Class {
+public class Course {
     private int id;
     private String title, description;
 
-    public Class(int id, String title, String description) {
+    public Course(int id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
